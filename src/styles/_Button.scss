@@ -1,0 +1,21 @@
+.button {
+  color: $white;
+  font-weight: $bold;
+  text-transform: capitalize;
+
+  background-color: $accent;
+
+  padding: 1em;
+
+  border: none;
+  border-radius: 10px;
+}
+
+.button:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.get-chuckd {
+  padding: 1em 5em;
+}
