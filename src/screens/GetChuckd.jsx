@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Menu from '../components/Menu'
-import CategoriesProvider from '../stores/CategoriesProvider'
+import CategoriesProvider from '../stores/JokesProvider'
 
 class GetChuckd extends Component {
   render() {

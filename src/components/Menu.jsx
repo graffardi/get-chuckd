@@ -4,19 +4,19 @@ import Select from 'react-select'
 import logo from '../assets/chuck_norris.png'
 
 import Button from './Button'
-import { withCategories } from '../stores/CategoriesProvider'
+import { withJokes } from '../stores/JokesProvider'
 
 const Menu = props => {
   const [query, setQuery] = useState('')
 
   useEffect(() => {
-    props.actions.getCategories()
+    props.actions.getAndSetCategories()
   }, [])
 
   return (
     <div className="menu">
       <div className="menu-top">
-        <Select className="input" isClearable />
+        <Select className="input" options={props.categories} isClearable />
         <img src={logo} className="logo" alt="logo" />
         <input type="text" placeholder="Query" className="input" value={query} onChange={e => setQuery(e.target.value)} />
       </div>
@@ -26,4 +26,4 @@ const Menu = props => {
   )
 }
 
-export default withCategories(Menu)
+export default withJokes(Menu)
