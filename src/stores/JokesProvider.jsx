@@ -10,11 +10,41 @@ const JokesProvider = props => {
   const [jokes, setJokes] = useState([])
 
   const addJokes = newJokes => {
-    setJokes([...jokes, newJokes])
+    setJokes([...jokes, ...newJokes])
   }
 
   const getJokes = endpoint => {
-    return axios.get(endpoint)
+    const queriedJokes = axios.get(endpoint)
+
+    queriedJokes
+      .then(res => {
+        if (res.data.total === 0) {
+          addJokes([
+            {
+              value: 'Chuck already knew that word, so he decided not to answer.',
+              category: null
+            }
+          ])
+        } else {
+          res.data.total
+            ? addJokes(res.data.result)
+            : addJokes([
+                {
+                  value: res.data.value,
+                  category: res.data.category
+                }
+              ])
+        }
+      })
+      .catch(err => {
+        setJokes([
+          {
+            value: 'Something went wrong, but definitely not Chuck Norris.',
+            category: null
+          }
+        ])
+        console.error(err)
+      })
   }
 
   const getAndSetCategories = () => {
@@ -38,7 +68,6 @@ const JokesProvider = props => {
         jokes,
         categories,
         actions: {
-          addJokes,
           getJokes,
           getAndSetCategories
         }

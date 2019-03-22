@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Menu from '../components/Menu'
 import CategoriesProvider from '../stores/JokesProvider'
+import Content from '../components/Content'
 
 class GetChuckd extends Component {
   render() {
@@ -10,6 +11,7 @@ class GetChuckd extends Component {
         <div className="app-content">
           <CategoriesProvider>
             <Menu />
+            <Content />
           </CategoriesProvider>
         </div>
       </div>
