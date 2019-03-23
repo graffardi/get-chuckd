@@ -23,7 +23,7 @@ const Menu = props => {
           isClearable
           value={category}
           onChange={category => {
-            setCategory(category)
+            setCategory(category.value)
             setQuery('')
           }}
         />
