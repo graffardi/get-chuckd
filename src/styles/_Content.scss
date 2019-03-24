@@ -1,8 +1,6 @@
 .joke-slider {
   padding: 2em;
 
-  height: 30%;
-
   border: $secondary solid 1px;
 
   display: flex;
@@ -25,4 +23,10 @@
 
 .slider-controls {
   text-align: end;
+}
+
+@media (min-width: 824px) {
+  .joke-slider {
+    height: 40%;
+  }
 }
