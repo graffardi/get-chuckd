@@ -6,6 +6,14 @@ import Button from './Button'
 const Content = props => {
   const [index, setIndex] = useState(0)
 
+  const handlePrev = () => {
+    setIndex(index - 1)
+  }
+
+  const handleNext = () => {
+    setIndex(index + 1)
+  }
+
   if (index > props.jokes.length) {
     setIndex(0)
   }
@@ -18,9 +26,17 @@ const Content = props => {
           <p className="joke-content">{props.jokes[index].value}</p>
         </>
       )}
-      <div>
-        {index !== 0 && <Button name={'Previous'} buttonClicked={() => setIndex(index - 1)} />}
-        {index !== props.jokes.length - 1 && props.jokes.length !== 0 && <Button name={'Next'} buttonClicked={() => setIndex(index + 1)} />}
+      <div className="slider-controls">
+        {index !== 0 ? (
+          <Button name="Previous" buttonClicked={handlePrev} />
+        ) : (
+          <Button name="Previous" customClass="button-disabled" disabled />
+        )}
+        {index !== props.jokes.length - 1 && props.jokes.length !== 0 ? (
+          <Button name="Next" customClass="right-button" buttonClicked={handleNext} />
+        ) : (
+          <Button name="Next" customClass="right-button button-disabled" disabled />
+        )}
       </div>
     </div>
   )

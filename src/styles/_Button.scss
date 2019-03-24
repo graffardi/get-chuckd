@@ -18,6 +18,18 @@
   text-decoration: underline;
 }
 
+.right-button {
+  margin-left: 1em;
+}
+
+.button-disabled {
+  background-color: $secondary;
+}
+
+.button-disabled:hover {
+  opacity: 1;
+}
+
 .get-chuckd {
   padding: 2em 5em;
 }
