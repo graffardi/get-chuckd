@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from '../App'
+
+import GetChuckd from '../screens/GetChuckd'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
+
+  ReactDOM.render(<GetChuckd />, div)
   ReactDOM.unmountComponentAtNode(div)
 })
