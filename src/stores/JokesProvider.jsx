@@ -41,7 +41,7 @@ const JokesProvider = props => {
         setLoading(false)
       })
       .catch(err => {
-        setJokes([
+        addJokes([
           {
             value: 'Something went wrong, but definitely not Chuck Norris.',
             category: null

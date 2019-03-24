@@ -1,8 +1,6 @@
 .joke-slider {
   padding: 2em;
 
-  height: 20vmin;
-
   border: $secondary solid 1px;
 
   display: flex;
@@ -14,8 +12,21 @@
   text-transform: uppercase;
 
   font-weight: $medium;
+  font-family: $mainfont;
+
+  margin-top: 0;
 }
 
 .joke-content {
   font-weight: $medium;
+}
+
+.slider-controls {
+  text-align: end;
+}
+
+@media (min-width: 824px) {
+  .joke-slider {
+    height: 40%;
+  }
 }
