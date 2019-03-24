@@ -27,5 +27,7 @@ it('Content renders properly.', () => {
     }
   ]
 
-  shallow(<Content jokes={jokes} />)
+  const wrapper = shallow(<Content jokes={jokes} />)
+
+  expect(wrapper.exists()).toBe(true)
 })
