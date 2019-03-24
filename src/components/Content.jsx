@@ -6,6 +6,10 @@ import Button from './Button'
 const Content = props => {
   const [index, setIndex] = useState(0)
 
+  if (index > props.jokes.length) {
+    setIndex(0)
+  }
+
   const content = props.jokes.map((joke, i) => (
     <>
       <div key={`joke-${i}`}>
