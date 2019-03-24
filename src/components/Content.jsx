@@ -4,7 +4,7 @@ import { withJokes } from '../stores/JokesProvider'
 import Button from './Button'
 
 const Content = props => {
-  const [index, setIndex] = useState(props.jokes.length)
+  const [index, setIndex] = useState(0)
 
   const content = props.jokes.map((joke, i) => (
     <>
