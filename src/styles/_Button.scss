@@ -1,6 +1,6 @@
 .button {
   color: $white;
-  font-weight: $bold;
+  font-weight: $medium;
   text-transform: capitalize;
 
   background-color: $accent;
@@ -9,6 +9,8 @@
 
   border: none;
   border-radius: 10px;
+
+  font-family: $mainfont;
 }
 
 .button:hover {

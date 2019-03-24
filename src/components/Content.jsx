@@ -10,18 +10,14 @@ const Content = props => {
     setIndex(0)
   }
 
-  const content = props.jokes.map((joke, i) => (
-    <>
-      <div key={`joke-${i}`}>
-        {joke.category && <h2 className="joke-category">{joke.category}</h2>}
-        <p className="joke-content">{joke.value}</p>
-      </div>
-    </>
-  ))
-
   return (
     <div className="joke-slider">
-      {content[index]}
+      {props.jokes.length !== 0 && (
+        <>
+          {props.jokes[index].category && <h1 className="joke-category">{props.jokes[index].category}</h1>}
+          <p className="joke-content">{props.jokes[index].value}</p>
+        </>
+      )}
       <div>
         {index !== 0 && <Button name={'Previous'} buttonClicked={() => setIndex(index - 1)} />}
         {index !== props.jokes.length - 1 && props.jokes.length !== 0 && <Button name={'Next'} buttonClicked={() => setIndex(index + 1)} />}
