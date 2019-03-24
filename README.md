@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## GET CHUCKD
 
-## Available Scripts
+Hello!
 
-In the project directory, you can run:
+Ce repository contient le travail que j'ai effectué pour le test troopers.agency.
 
-### `npm start`
+Tout d'abord, l'application est en ligne à cette adresse: https://get-chuckd.herokuapp.com/
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Attention, la musique de Walker Texas Ranger se lancera, donc faites attention au volume si vous utilisez un casque :skull:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Choix techniques
 
-### `npm test`
+Pour développer cette application, j'ai pris les décisions suivantes:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Create React App: Pour la simplicité de mise en place, malgré un bundle qui pourrait être plus optimisé.
+- React 16.8.+ pour l'utilisation des Hooks (ici principalement useState et useEffect).
+- Pas de package de state management, et l'utilisation de la Context API en guise de store. En effet, je pense que Redux sur un si petit projet aurait été un peu (voire très) overkill, et dans le cas de ce programme un store aussi léger et efficace que la Context API collait parfaitement.
+- JEST: Je n'avais jamais essayé les tests sur un projet React (il s'agissait d'une première pour moi), je dois avouer que malgré la simplicité de certains de mes tests (vraiment pas très avancés), j'ai été convaincu instantanément par leur utilité. Je me suis renseigné pour tester chaque méthode de chacun de mes composants, mais je n'ai pas réussi à trouver des guides suffisamment avancés sur le test des functional components x hooks pour le moment.
+- Javascript, malgré mon attrait pour Typescript.
+- Node SASS pour la gestion de mon CSS, par simple habitude.
+- Axios pour call l'API.
+- Et petit shout out à https://api.chucknorris.io/ bien évidemment!
 
-### `npm run build`
+### Choix fonctionnels
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Avant de me lancer dans le développement du projet, j'ai tout de suite regardé comment fonctionnait l'API, et j'ai obviously basé mon fonctionnement sur celle-ci.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+On ne peut pas effectuer une recherche avec une catégorie et une query, alors lorsque l'on utilise l'un de ces deux champs l'autre se vide. Si aucun des deux champs n'a de valeur, alors la recherche est simplement aléatoire.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Je souhaitais partir dans un premier temps sur une liste, mais je me suis vite ravisé pour développer un "slider" à la place. En effet, dans le cas d'une belle quantité de datas, le slider est bien plus simple d'utilisation et plus optimisé (et cela nous évite une page bien trop longue).
 
-### `npm run eject`
+### Remarques
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Pour le "extra bonus" des emojis dans les messages de commit, je ne sais pas si cela faisait référence à gitmoji, mais si c'est le cas ce sera pour une prochaine fois. :wink:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Commandes
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Installation et lancement:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+yarn install
+yarn start
+```
 
-## Learn More
+Test:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+yarn test
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pour conclure
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Merci d'être arrivé jusqu'au bout du README, et à très bientôt! :sunglasses:
