@@ -14,39 +14,41 @@ const Menu = props => {
     props.actions.getAndSetCategories()
   }, [])
 
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    query === '' ? props.actions.getJokes(`/random?category=${category}`) : props.actions.getJokes(`/search?query=${query}`)
+  }
+
   return (
     <div className="menu">
-      <div className="menu-top">
-        <Select
-          className="input"
-          options={props.categories}
-          isClearable
-          value={category}
-          onChange={category => {
-            setCategory(category.value)
-            setQuery('')
-          }}
-        />
-        <img src={logo} className="logo" alt="logo" />
-        <input
-          type="text"
-          placeholder="Query"
-          className="input"
-          value={query}
-          onChange={e => {
-            setQuery(e.target.value)
-            setCategory('')
-          }}
-        />
-      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="menu-top">
+          <Select
+            className="input"
+            options={props.categories}
+            isClearable
+            value={category}
+            onChange={category => {
+              setCategory(category.value)
+              setQuery('')
+            }}
+          />
+          <img src={logo} className="logo" alt="logo" />
+          <input
+            type="text"
+            placeholder="Query"
+            className="input"
+            value={query}
+            onChange={e => {
+              setQuery(e.target.value)
+              setCategory('')
+            }}
+          />
+        </div>
 
-      <Button
-        name={'GET CHUCKD'}
-        customClass="get-chuckd"
-        buttonClicked={() =>
-          query === '' ? props.actions.getJokes(`/random?category=${category}`) : props.actions.getJokes(`/search?query=${query}`)
-        }
-      />
+        <Button name={'GET CHUCKD'} customClass="get-chuckd" />
+      </form>
     </div>
   )
 }
