@@ -8,13 +8,16 @@ axios.defaults.baseURL = 'https://api.chucknorris.io/jokes/'
 const JokesProvider = props => {
   const [categories, setCategories] = useState([])
   const [jokes, setJokes] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const addJokes = newJokes => {
-    setJokes([...jokes, ...newJokes])
+    setJokes([...newJokes, ...jokes])
   }
 
   const getJokes = endpoint => {
     const queriedJokes = axios.get(endpoint)
+
+    setLoading(true)
 
     queriedJokes
       .then(res => {
@@ -35,6 +38,7 @@ const JokesProvider = props => {
                 }
               ])
         }
+        setLoading(false)
       })
       .catch(err => {
         setJokes([
@@ -44,6 +48,7 @@ const JokesProvider = props => {
           }
         ])
         console.error(err)
+        setLoading(false)
       })
   }
 
@@ -67,6 +72,7 @@ const JokesProvider = props => {
       value={{
         jokes,
         categories,
+        loading,
         actions: {
           getJokes,
           getAndSetCategories

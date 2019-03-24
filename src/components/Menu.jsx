@@ -17,7 +17,9 @@ const Menu = props => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    query === '' ? props.actions.getJokes(`/random?category=${category}`) : props.actions.getJokes(`/search?query=${query}`)
+    if (!props.loading) {
+      query === '' ? props.actions.getJokes(`/random?category=${category}`) : props.actions.getJokes(`/search?query=${query}`)
+    }
   }
 
   return (
@@ -47,7 +49,10 @@ const Menu = props => {
           />
         </div>
 
-        <Button name={'GET CHUCKD'} customClass="get-chuckd" />
+        <Button
+          name={props.loading ? 'Loading facts...' : 'GET CHUCKD'}
+          customClass={props.loading ? 'get-chuckd loading' : 'get-chuckd'}
+        />
       </form>
     </div>
   )

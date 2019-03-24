@@ -1,3 +1,21 @@
-.content {
-  width: 100%;
+.joke-slider {
+  padding: 2em;
+
+  height: 20vmin;
+
+  border: $secondary solid 1px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.joke-category {
+  text-transform: uppercase;
+
+  font-weight: $medium;
+}
+
+.joke-content {
+  font-weight: $medium;
 }
