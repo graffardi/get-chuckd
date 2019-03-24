@@ -18,7 +18,9 @@ const Menu = props => {
     e.preventDefault()
 
     if (!props.loading) {
-      query === '' ? props.actions.getJokes(`/random?category=${category}`) : props.actions.getJokes(`/search?query=${query}`)
+      query === ''
+        ? props.actions.getJokes(`/random?category=${category.value ? category.value : ''}`)
+        : props.actions.getJokes(`/search?query=${query}`)
     }
   }
 
@@ -27,12 +29,12 @@ const Menu = props => {
       <form onSubmit={handleSubmit}>
         <div className="menu-top">
           <Select
-            className="input"
+            className="input-select"
             options={props.categories}
             isClearable
             value={category}
             onChange={category => {
-              setCategory(category.value)
+              setCategory(category)
               setQuery('')
             }}
           />

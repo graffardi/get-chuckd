@@ -10,7 +10,7 @@
 }
 
 .logo {
-  // animation: logo-spin infinite 20s linear;
+  animation: logo-spin infinite 10s linear;
   height: 30vmin;
   pointer-events: none;
 }
@@ -29,11 +29,15 @@
   padding: 0.5em;
 }
 
-// @keyframes logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+.input-select {
+  width: 20%;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
